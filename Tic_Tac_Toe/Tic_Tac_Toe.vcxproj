@@ -24,6 +24,7 @@
     <ProjectGuid>{efa9bb0b-b64b-4e7e-96af-166393ae343f}</ProjectGuid>
     <RootNamespace>TicTacToe</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>OpenGl_Homework</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
