@@ -4,7 +4,7 @@ Application* Application::instancePtr = nullptr;
 
 Application::Application() :
 	deltaTime(0.0f), lastFrame(0.0f),
-	window("Test", Window::getWidth(), Window::getHeight()),
+	window("Tic-Tac-Toe", Window::getWidth(), Window::getHeight()),
 	myImGui(Window::getWidth(), Window::getHeight())
 {
 	spdlog::info("Starting Application");
@@ -26,7 +26,7 @@ void Application::run() {
 		Clear();
 		UpdateDeltaTime();
 		processContinuousInput();
-		scene.render();
+		ticTacScene.render();
 		glfwPollEvents();
 		LoadImGui();
 		window.swapBuffers();
@@ -36,7 +36,7 @@ void Application::run() {
 
 void Application::SetupBasics()
 {
-	GLCall(glEnable(GL_DEPTH_TEST));
+	//GLCall(glEnable(GL_DEPTH_TEST));
 	GLCall(glEnable(GL_BLEND));
 	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 
@@ -44,7 +44,7 @@ void Application::SetupBasics()
 
 void Application::Clear()
 {
-	GLCall(glClearColor(0.1f, 0.1f, 0.1f, 1.0f));
+	GLCall(glClearColor(1.0f, 1.0f, 1.0f, 1.0f));
 	GLCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 }
 
@@ -68,16 +68,16 @@ void Application::LoadImGui()
 
 void Application::processContinuousInput()
 {
-	scene.processContinuousInput(deltaTime);
+	ticTacScene.processContinuousInput(deltaTime);
 }
 
 void Application::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, int32_t mode) {
 
-	scene.processDiscreteInput(key, scancode, action, mode, deltaTime);
+	ticTacScene.processDiscreteInput(key, scancode, action, mode, deltaTime);
 }
 
 void Application::onCursorPositionEvent(double xposIn, double yposIn) {
-	scene.onCursorPositionEvent(xposIn, yposIn);
+	ticTacScene.onCursorPositionEvent(xposIn, yposIn);
 }
 
 float Application::getRandom()

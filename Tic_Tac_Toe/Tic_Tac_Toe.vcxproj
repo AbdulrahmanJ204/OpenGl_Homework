@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\Scene\Scenes</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\Scene\Scenes</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -126,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\Scene\Scenes</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -143,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependincies\include;vendor;src;assets;include;include\core;include\opengl;include\utils;include\Scene;include\Scene\Scenes</AdditionalIncludeDirectories>
       <AdditionalOptions> /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -167,6 +167,8 @@
     <ClInclude Include="include\Scene\Camera.h" />
     <ClInclude Include="include\Scene\Renderer.h" />
     <ClInclude Include="include\Scene\Scene.h" />
+    <ClInclude Include="include\Scene\Scenes\Tic_Tac_Toe.h" />
+    <ClInclude Include="include\Square.h" />
     <ClInclude Include="include\utils\GLErrorManager.h" />
     <ClInclude Include="include\utils\myImGuiManager.h" />
     <ClInclude Include="vendor\imGui\imconfig.h" />
@@ -193,6 +195,8 @@
     <ClCompile Include="src\Scene\Camera.cpp" />
     <ClCompile Include="src\Scene\Renderer.cpp" />
     <ClCompile Include="src\Scene\Scene.cpp" />
+    <ClCompile Include="src\Scene\Tic_Tac_Toe.cpp" />
+    <ClCompile Include="src\Square.cpp" />
     <ClCompile Include="src\utils\GLErrorManager.cpp" />
     <ClCompile Include="src\utils\myImGuiManager.cpp" />
     <ClCompile Include="vendor\imGui\imgui.cpp" />
@@ -203,6 +207,15 @@
     <ClCompile Include="vendor\imGui\imgui_tables.cpp" />
     <ClCompile Include="vendor\imGui\imgui_widgets.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\grid.png" />
+    <Image Include="assets\textures\O.png" />
+    <Image Include="assets\textures\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\fragment.frag" />
+    <None Include="assets\shaders\vertex.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

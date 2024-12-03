@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "Camera.h"
 #include "Scene.h"
+#include "Tic_Tac_Toe.h"
 class Application {
 public:
 
@@ -23,7 +24,7 @@ public:
 private:
 	
 	Window window;
-	Scene scene;
+	TicTacToe ticTacScene;
 	myImGuiManager myImGui;
 	float deltaTime, lastFrame;
 

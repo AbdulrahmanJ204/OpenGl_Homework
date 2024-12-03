@@ -1,7 +1,7 @@
 #include "Window.h"
 #include "Application.h"
 Window* Window::instancePtr = nullptr;
-int Window::s_Width = 1800;
+int Window::s_Width = 900;
 int Window::s_Height= 900;
 
 Window::Window(std::string title, int width , int height) :
@@ -96,7 +96,7 @@ void Window::setupCallbacks() {
 	
 	glfwSetKeyCallback(m_Window, onKeyEvent);
 	//glfwSetMouseButtonCallback(m_Window, onMouseButtonEvent);
-	glfwSetCursorPosCallback(m_Window, onCursorPosition);
+	//glfwSetCursorPosCallback(m_Window, onCursorPosition);
 	glfwSetFramebufferSizeCallback(m_Window, onResized);
 //
 //#ifndef BUILD_TYPE_DIST
@@ -106,7 +106,7 @@ void Window::setupCallbacks() {
 //	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 //#endif
 
-	glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	//glfwSetInputMode(m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	glfwSetWindowRefreshCallback(m_Window, onRefreshWindow);
 	glfwSetErrorCallback(Window::onWindowError);
