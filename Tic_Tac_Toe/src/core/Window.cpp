@@ -65,8 +65,7 @@ void Window::onKeyEvent(GLFWwindow*, int32_t key, int32_t scancode, int32_t acti
 }
 
 void Window::onResized(GLFWwindow*, int32_t width, int32_t height) {
-	Application& app = Application::instance();
-	Window& window = app.getWindow();
+	
 	s_Width = width, s_Height = height;
 	glViewport(0, 0, width, height);
 	// TODO: implement onResized in Application , i think projection matrix should be updated.

@@ -23,6 +23,10 @@ public:
 	static void onCursorPosition(GLFWwindow* window, double x, double y);
 	static void onRefreshWindow(GLFWwindow* window);
 	static void onWindowError(int32_t errorCode, const char* description);
+	static void changeWindowSize(int width, int height) {
+		// Change the window size
+		glfwSetWindowSize(instancePtr->getWindow(), width, height);
+	}
 	//static void onOpenGlMessage(GLenum source,
 	//	GLenum type,
 	//	GLuint id,

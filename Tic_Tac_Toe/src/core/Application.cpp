@@ -9,6 +9,7 @@ Application::Application() :
 {
 	spdlog::info("Starting Application");
 	instancePtr = this;
+	Window::changeWindowSize(900, 900);
 }
 
 Application::~Application()
@@ -26,7 +27,11 @@ void Application::run() {
 		Clear();
 		UpdateDeltaTime();
 		processContinuousInput();
+
+		if (curScene == Scenes::TICTACTOE)
 		ticTacScene.render();
+		else if (curScene == Scenes::WALKINGCIRCLE)
+		walkingCircleScene.render();
 		glfwPollEvents();
 		LoadImGui();
 		window.swapBuffers();
@@ -68,16 +73,34 @@ void Application::LoadImGui()
 
 void Application::processContinuousInput()
 {
+	if (curScene == Scenes::TICTACTOE)
 	ticTacScene.processContinuousInput(deltaTime);
+	if (curScene == Scenes::WALKINGCIRCLE)
+	walkingCircleScene.processContinuousInput(deltaTime);
+
 }
 
 void Application::processDiscreteInput(int32_t key, int32_t scancode, int32_t action, int32_t mode) {
-
-	ticTacScene.processDiscreteInput(key, scancode, action, mode, deltaTime);
+	if (action == GLFW_REPEAT) {
+		return;
+	}
+	if(action==GLFW_PRESS)
+	{
+		if (key == GLFW_KEY_LEFT_CONTROL) {
+			curScene = (Scenes)(((int)curScene + 1) % (int)Scenes::MOD);
+		}
+		if (curScene == Scenes::TICTACTOE)
+			ticTacScene.processDiscreteInput(key, scancode, action, mode, deltaTime);
+		if (curScene == Scenes::WALKINGCIRCLE)
+			walkingCircleScene.processDiscreteInput(key, scancode, action, mode, deltaTime);
+	}
 }
 
 void Application::onCursorPositionEvent(double xposIn, double yposIn) {
+	if (curScene == Scenes::TICTACTOE)
 	ticTacScene.onCursorPositionEvent(xposIn, yposIn);
+	if (curScene == Scenes::WALKINGCIRCLE)
+	walkingCircleScene.onCursorPositionEvent(xposIn, yposIn);
 }
 
 float Application::getRandom()

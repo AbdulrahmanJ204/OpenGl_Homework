@@ -4,6 +4,12 @@
 #include "Camera.h"
 #include "Scene.h"
 #include "Tic_Tac_Toe.h"
+#include "Walking_Circle.h"
+enum class Scenes {
+	TICTACTOE,
+	WALKINGCIRCLE,
+	MOD
+};
 class Application {
 public:
 
@@ -25,13 +31,13 @@ private:
 	
 	Window window;
 	TicTacToe ticTacScene;
+	WalkingCircle walkingCircleScene;
 	myImGuiManager myImGui;
 	float deltaTime, lastFrame;
-
+	Scenes curScene = Scenes::TICTACTOE;
 	void LoadImGui();
 	void SetupBasics();
 	void Clear();
 	void UpdateDeltaTime();
-
 	float getRandom();
 };

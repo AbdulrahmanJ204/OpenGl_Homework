@@ -93,6 +93,12 @@
     <ClInclude Include="include\Scene\Scenes\Tic_Tac_Toe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\MyRectangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Scenes\Walking_Circle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application.cpp">
@@ -164,7 +170,13 @@
     <ClCompile Include="src\Square.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene\Tic_Tac_Toe.cpp">
+    <ClCompile Include="src\Scene\Scenes\Tic_Tac_Toe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyRectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Scenes\Walking_Circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,6 +188,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\textures\X.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\awesomeface.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\ground.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

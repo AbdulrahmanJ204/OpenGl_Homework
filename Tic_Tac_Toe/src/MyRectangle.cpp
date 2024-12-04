@@ -1,28 +1,26 @@
-#include "Square.h"
+#include "MyRectangle.h"
 #include "Renderer.h"
 
 
 
 
 
-Square::Square()
+MyRectangle::MyRectangle()
 {
 }
 
-Square::Square(float sideLength, const std::string& vertexPath, const std::string& fragPath, const std::string& texturePath, glm::vec3 trans)
+MyRectangle::MyRectangle(float width, float height, const std::string& vertexPath, const std::string& fragPath, const std::string& texturePath, glm::vec3 trans)
 	:m_Model(1.0f),
-	m_Length(sideLength),
 	m_Pos(trans),
-	m_Axis(0.0f, 0.0f, 1.0f),
 	m_Translate(0.0f, 0.0f, 0.0f)
 {
 
 	float vertices[] = {
 		// positions																		// texture coords
-		 1.0f * sideLength + trans.x, 1.0f * sideLength + trans.y, 0.0f * sideLength + trans.z, 1.0f, 1.0f, // top right
-		 1.0f * sideLength + trans.x,0.0f * sideLength + trans.y, 0.0f * sideLength + trans.z, 1.0f, 0.0f, // bottom right
-		0.0f * sideLength + trans.x,0.0f * sideLength + trans.y, 0.0f * sideLength + trans.z, 0.0f, 0.0f, // bottom left
-		0.0f * sideLength + trans.x, 1.0f * sideLength + trans.y, 0.0f * sideLength + trans.z, 0.0f, 1.0f // top left
+		1.0f * width + trans.x, 1.0f * height + trans.y, 0.0f + trans.z, 1.0f, 1.0f, // top right
+		1.0f * width + trans.x, 0.0f * height + trans.y, 0.0f + trans.z, 1.0f, 0.0f, // bottom right
+		0.0f * width + trans.x, 0.0f * height + trans.y, 0.0f + trans.z, 0.0f, 0.0f, // bottom left
+		0.0f * width + trans.x, 1.0f * height + trans.y, 0.0f + trans.z, 0.0f, 1.0f // top left
 	};
 	unsigned int indices[] = {
 		0, 1, 3, // first triangle
@@ -51,11 +49,11 @@ Square::Square(float sideLength, const std::string& vertexPath, const std::strin
 
 }
 
-Square::~Square()
+MyRectangle::~MyRectangle()
 {
 }
 
-void Square::draw()
+void MyRectangle::draw()
 {
 	m_VAO->Bind();
 	m_Texture->Bind();
@@ -64,7 +62,7 @@ void Square::draw()
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
-void Square::updateUniforms()
+void MyRectangle::updateUniforms()
 {
 	m_Shader->Bind();
 	m_Texture->Bind();
@@ -73,27 +71,20 @@ void Square::updateUniforms()
 	m_Shader->SetUniform1i("texture1", 0);
 }
 
-void Square::Translate(glm::vec3& translate)
+void MyRectangle::Translate(glm::vec3& translate)
 {
 	m_Model = glm::translate(m_Model, -m_Translate);
-	m_Pos -= m_Translate;
 	m_Translate = translate;
-	m_Pos += m_Translate;
 	m_Model = glm::translate(m_Model, m_Translate);
 
 }
 
-
-
-
-void Square::SetProj(glm::mat4 proj)
+void MyRectangle::SetProj(glm::mat4 proj)
 {
 	m_Proj = proj;
 }
 
-void Square::SetView(glm::mat4 view)
+void MyRectangle::SetView(glm::mat4 view)
 {
 
 }
-
-

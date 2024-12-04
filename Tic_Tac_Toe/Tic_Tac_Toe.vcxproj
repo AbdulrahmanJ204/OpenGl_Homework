@@ -165,10 +165,12 @@
     <ClInclude Include="include\opengl\VAO.h" />
     <ClInclude Include="include\opengl\VBO.h" />
     <ClInclude Include="include\opengl\VBOLayout.h" />
+    <ClInclude Include="include\MyRectangle.h" />
     <ClInclude Include="include\Scene\Camera.h" />
     <ClInclude Include="include\Scene\Renderer.h" />
     <ClInclude Include="include\Scene\Scene.h" />
     <ClInclude Include="include\Scene\Scenes\Tic_Tac_Toe.h" />
+    <ClInclude Include="include\Scene\Scenes\Walking_Circle.h" />
     <ClInclude Include="include\Square.h" />
     <ClInclude Include="include\utils\GLErrorManager.h" />
     <ClInclude Include="include\utils\myImGuiManager.h" />
@@ -193,10 +195,12 @@
     <ClCompile Include="src\opengl\Texture.cpp" />
     <ClCompile Include="src\opengl\VAO.cpp" />
     <ClCompile Include="src\opengl\VBO.cpp" />
+    <ClCompile Include="src\MyRectangle.cpp" />
     <ClCompile Include="src\Scene\Camera.cpp" />
     <ClCompile Include="src\Scene\Renderer.cpp" />
     <ClCompile Include="src\Scene\Scene.cpp" />
-    <ClCompile Include="src\Scene\Tic_Tac_Toe.cpp" />
+    <ClCompile Include="src\Scene\Scenes\Tic_Tac_Toe.cpp" />
+    <ClCompile Include="src\Scene\Scenes\Walking_Circle.cpp" />
     <ClCompile Include="src\Square.cpp" />
     <ClCompile Include="src\utils\GLErrorManager.cpp" />
     <ClCompile Include="src\utils\myImGuiManager.cpp" />
@@ -210,7 +214,10 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\textures\awesomeface.png" />
+    <Image Include="assets\textures\container.jpg" />
     <Image Include="assets\textures\grid.png" />
+    <Image Include="assets\textures\ground.png" />
     <Image Include="assets\textures\O.png" />
     <Image Include="assets\textures\X.png" />
   </ItemGroup>

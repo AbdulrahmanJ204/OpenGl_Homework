@@ -12,15 +12,16 @@ TicTacToe* TicTacToe::instancePtr = nullptr;
 
 
 TicTacToe::TicTacToe()
-	:
-	Scene(),
-	m_Grid((float)Window::getWidth(), "assets/shaders/vertex.vert", "assets/shaders/fragment.frag", "assets/textures/grid.png"),
-	m_X((float)Window::getWidth() / 3, "assets/shaders/vertex.vert", "assets/shaders/fragment.frag", "assets/textures/X.png"),
-	m_O((float)Window::getWidth() / 3, "assets/shaders/vertex.vert", "assets/shaders/fragment.frag", "assets/textures/O.png")
-
+	:Scene()
 {
+	
+	Window::changeWindowSize(900, 900);
+	m_Proj = (glm::ortho(0.0f, (float)Window::getWidth(), 0.0f, (float)Window::getHeight(), -100.0f, 100.0f));
 	float x = (float)Window::getWidth() / 3;
 	instancePtr = this;
+	m_Grid = Square((float)Window::getWidth(), "assets/shaders/vertex.vert", "assets/shaders/fragment.frag", "assets/textures/grid.png");
+	m_X = Square((float)Window::getWidth() / 3, "assets/shaders/vertex.vert", "assets/shaders/fragment.frag", "assets/textures/X.png");
+	m_O = Square((float)Window::getWidth() / 3, "assets/shaders/vertex.vert", "assets/shaders/fragment.frag", "assets/textures/O.png");
 	for (int i = 0; i < 10; i++) clicked[i] = status::EMPTY;
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
@@ -96,6 +97,8 @@ void TicTacToe::processDiscreteInput(int32_t key, int32_t scancode, int32_t acti
 	if (action == GLFW_REPEAT) {
 		return;
 	}
+	Window::changeWindowSize(900, 900);
+	m_Proj = (glm::ortho(0.0f, (float)Window::getWidth(), 0.0f, (float)Window::getHeight(), -100.0f, 100.0f));
 
 	if (key == GLFW_KEY_ESCAPE) {
 		glfwSetWindowShouldClose(Window::instancePtr->getWindow(), true);
@@ -110,8 +113,9 @@ void TicTacToe::processDiscreteInput(int32_t key, int32_t scancode, int32_t acti
 		if (key >= GLFW_KEY_1 && key <= GLFW_KEY_9) {
 			key -= GLFW_KEY_0;
 			if (clicked[key] == status::EMPTY && cnt < 10) {
-				if (cnt % 2) clicked[key] = status::CROSS, cnt++;
-				else clicked[key] = status::CIRCLE, cnt++;
+
+				if (cnt % 2) clicked[key] = status::CIRCLE, cnt++;
+				else clicked[key] = status::CROSS, cnt++;
 			}
 		}
 		else if (key >= GLFW_KEY_KP_1 && key <= GLFW_KEY_KP_9) {
