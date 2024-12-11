@@ -1,5 +1,5 @@
 # Tic_Tac_Toe 
-Simple tic_tac_toe game using modern Opengl
+Simple tic_tac_toe game using c++ with modern Opengl
 
 ## How to play
 - press any number form 1 to 9 , X starts.
